@@ -8,7 +8,29 @@
   <div class="col-md-6">
     <p><b>Author:</b> {{booksShowCtrl.book.author}}</p>
     <p><b>Release Date:</b> {{booksShowCtrl.book.releaseDate}}</p>
-
   </div>
+  <div class="col-md-2">
+    <button class="btn btn-default" ng-hide="editing" ng-click=" editing = true">Edit</button>
+    <button class="btn btn-success" ng-show="editing" ng-click=" editing = false">Cancel</button>
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-danger"  ng-click="booksShowCtrl.deleteBook(book)">Delete</button>
+  </div>
+
+  <form ng-show="editing"ng-submit="booksShowCtrl.updateBook(book)">
+    <div class="form-group">
+      <input ng-show="editing" ng-model="booksShowCtrl.book.title" type="text" >
+    </div>
+    <div class="form-group">
+      <input ng-show="editing" ng-model="booksShowCtrl.book.author" type="text" >
+    </div>
+    <div class="form-group">
+      <input ng-show="editing" ng-model="booksShowCtrl.book.image" type="text" >
+    </div>
+    <div class="form-group">
+      <input ng-show="editing" ng-model="booksShowCtrl.book.releaseDate" type="text" >
+    </div>
+     <input type="submit" value="Update Book">
+  </form>
 
 </div>
