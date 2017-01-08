@@ -8,6 +8,7 @@ angular.module('libraryApp')
 BooksShowController.$inject=['$http','$routeParams', '$location'];
 function BooksShowController($http, $routeParams, $location) {
   var vm = this;
+  vm.newBook = {};
   var bookId = $routeParams.id;
 
 
@@ -22,6 +23,8 @@ function BooksShowController($http, $routeParams, $location) {
 
   });
 
+
+
 vm.updateBook = function (book){
   $http({
     method:'PUT',
@@ -34,6 +37,7 @@ vm.updateBook = function (book){
     }
   }).then(function successCallback(updateBook){
      console.log(updateBook);
+     $location.path('/');
   }, function errorCallback(response){
      console.log('There was an error getting the data', response);
 });
@@ -45,6 +49,7 @@ vm.deleteBook = function(book){
     url: 'https://super-crud.herokuapp.com/books/' + bookId,
   }).then(function successCallback(deleteBook){
     console.log(deleteBook);
+    $location.path('/');
   },function errorCallback(response){
     console.log('There was an error getting the data', response);
   });

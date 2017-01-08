@@ -8,6 +8,9 @@ BooksIndexController.$inject = ['$http'];
 function BooksIndexController($http){
   var vm = this;
 
+
+
+
   $http({
     method: 'GET',
     url: 'https://super-crud.herokuapp.com/books'
@@ -19,6 +22,19 @@ function BooksIndexController($http){
 
   });
 
-
+  vm.createBook = function(){
+    $http({
+      method: 'POST',
+      url: 'https://super-crud.herokuapp.com/books',
+      data: vm.book,
+    }).then(function successCallback(response){
+      console.log('response create book', response.data)
+      console.log(vm.books);
+      vm.books.push(response.data);
+      console.log(vm.books);
+    },function errorCallback(error){
+      console.log('There was an error getting the data', error);
+    });
+  }
 
 };
