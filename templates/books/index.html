@@ -30,14 +30,16 @@
       <input ng-model="booksIndexCtrl.book.image" type="text" required="">
     </div>
   </div>
-  <input type="submit" name="" value="submit"  class="btn btn-default">
+  <input type="submit" name="" value="submit"  class="btn btn-default text-right">
 </form>
   <!-- Search Book -->
   <div class="row">
     <b class="col-md-2">Search:</b>
-    <div class="col-md-6">
-      <input type="text" ng-model="searchBook" value="">
+    <div class="col-md-4">
+      <input type="text" ng-model="searchBook" >
     </div>
+    <!-- filter buttons -->
+    <b class="col-md-2">Order By:</b>
     <button class="btn btn-default" ng-click="orderBy='title'">Title</button>
     <button class="btn btn-default" ng-click="orderBy='author'">Author</button>
 
